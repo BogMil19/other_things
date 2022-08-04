@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="UTF-8">
+<head>
+    <title> Raport na temat filmów</title>
+</head>
+<body>
+    <h1>Raport na temat filmów</h1>
+    <p>Data {{date}}</p>
+    <p>Liczba filmów obejrzanych w ciągu ostatnich 30 dni: {{movies|length}}</p>
+    <ol>
+        {% for movie in movies %}
+        <li>{{movie}}</li>
+        {% endfor %}
+    </ol>
+    <p>Łączny czas trwania w minutach: {{total_minutes}} </p>
+</body>
+</html>

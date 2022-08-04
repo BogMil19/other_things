@@ -9,11 +9,15 @@ class Vector:
     '''
 
     def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
+        self.x = float(x)
+        self.y = float(y)
+
+    def __iter__(self):
+        return (i for i in (self.x, self.y))
 
     def __repr__(self):
-        return 'Wektor z (%r, %r)' % (self.x, self.y)
+        class_name = type(self).__name__
+        return '{}({!r},{!r})'.format(class_name, *self)
 
     def __abs__(self):
         return hypot(self.x, self.y)
@@ -21,7 +25,6 @@ class Vector:
     def __bool__(self):
         return bool(abs(self)) #o.o
         # return bool(self.x or self.y) #brak wartości
-
 
     def __add__(self, other):
         x = self.x + other.x
